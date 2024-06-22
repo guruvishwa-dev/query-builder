@@ -23,7 +23,7 @@ const LoginPage = () => {
 
     const handleLogin = (loginDetails: LoginData) => {
         if (loginDetails.email === "guru.vishwa@gmail.com" && loginDetails.password === "Password@123") {
-            navigate("/main/MainComponent");
+            navigate("/main/NavbarSimple");
         } else {
             alert("The credential is wrong please enter valid credentials");
         }

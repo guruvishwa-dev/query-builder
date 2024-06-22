@@ -1,6 +1,7 @@
 import { Navigate, Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import LoginPage from "../frontend/login";
-import MainComponent from "../frontend/mainComponent";
+import NavbarSimple from "../frontend/NavbarSimple";
+import { HtmlValidator } from "../frontend/htmlvalidator";
 
 const routes = createBrowserRouter(
     createRoutesFromElements(
@@ -9,9 +10,12 @@ const routes = createBrowserRouter(
             <Route path ="login" element ={<LoginPage/>}/>
             
             <Route path="main">
-            <Route path = "MainComponent" element={<MainComponent/>}/>
+            <Route path = "NavbarSimple" element={<NavbarSimple/>}/>
             </Route>
             
+            <Route path="validator">
+            <Route path = "html-val" element={<HtmlValidator/>}/>
+            </Route>
             
         </Route>
     ),
