@@ -6,8 +6,11 @@ export interface LoginData {
     email: string;
     password: string;
 }
-
-const LoginPage = () => {
+interface LoginPageProps {
+    onLogin: () => void;
+  }
+  
+  const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
     const navigate = useNavigate();
 
     const form = useForm<LoginData>({
@@ -23,7 +26,8 @@ const LoginPage = () => {
 
     const handleLogin = (loginDetails: LoginData) => {
         if (loginDetails.email === "guru.vishwa@gmail.com" && loginDetails.password === "Password@123") {
-            navigate("/main/NavbarSimple");
+            onLogin();
+            navigate('/main/html-val');
         } else {
             alert("The credential is wrong please enter valid credentials");
         }

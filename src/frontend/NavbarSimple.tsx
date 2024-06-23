@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Group, Code } from '@mantine/core';
 import {
-    IconDatabaseImport,
+  IconDatabaseImport,
   IconSwitchHorizontal,
   IconLogout,
   IconFile,
@@ -10,12 +10,12 @@ import classes from '../css/NavbarSimple.module.css';
 import { Link } from 'react-router-dom';
 
 const data = [
-  { link: "/validator/html-val", label: 'Html5 Ad VAlidator', icon: IconFile },
-  { link: " ", label: 'Query Dashboard', icon: IconDatabaseImport },
+  { link: "/main/html-val", label: 'Html5 Ad VAlidator', icon: IconFile },
+  { link: "/main/query-dash", label: 'Query Dashboard', icon: IconDatabaseImport },
 ];
 
 const NavbarSimple = () => {
-  const [active, setActive] = useState('Billing');
+  const [active, setActive] = useState('');
 
   const links = data.map((item) => (
     <Link
@@ -34,22 +34,21 @@ const NavbarSimple = () => {
     <nav className={classes.navbar}>
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
-          {/* < size={28} /> */}
-          <Code fw={700}>v1.0.0</Code>
+          <Code color='pink' h={25} w={70} fw={1000}>Nextroll</Code>
         </Group>
         {links}
       </div>
 
       <div className={classes.footer}>
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+        <Link to="/login" className={classes.link} onClick={() => console.log('Logout')}>
           <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
           <span>Change account</span>
-        </a>
+        </Link>
 
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+        <Link to="/login" className={classes.link} onClick={() => console.log('Logout')}>
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>
-        </a>
+        </Link>
       </div>
     </nav>
   );
