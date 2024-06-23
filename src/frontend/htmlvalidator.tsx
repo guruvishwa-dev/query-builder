@@ -94,47 +94,100 @@ export const HtmlValidator = () => {
     };
 
     return (
-        <Container>
-            <Title mb="lg">HTML5 Ad Validator Tool</Title>
-            <Grid>
-                <Grid.Col span={6}>
-                    <Card withBorder shadow="sm" p="lg">
-                        <FileInput
-                            label="Upload HTML5 Ad Zip File"
-                            placeholder="Upload file"
-                            onChange={(event) => handleFileUpload(event)}
-                            accept=".zip"
-                        />
-                        <Group mt="md">
-                            <Button onClick={processZipFile}>Validate Zip File</Button>
-                        </Group>
-                    </Card>
-                </Grid.Col>
-                <Grid.Col span={6}>
-                    <Card withBorder shadow="sm" p="lg">
-                        <Title order={4} mb="md">Validation Results</Title>
-                        {validationResults.length === 0 ? (
-                            <Text>No validation results yet.</Text>
-                        ) : (
-                            validationResults.map((resultSet, index) => (
-                                <div key={index}>
-                                    <Text mb="xs">{resultSet.fileName.replace(/_/g, ' ')}</Text>
-                                    {resultSet.results.map((result, i) => (
-                                        <Notification
-                                            key={i}
-                                            color={result.includes('Missing') || result.includes('incorrect') ? 'red' : 'green'}
-                                            title={result.includes('Missing') || result.includes('incorrect') ? 'Error' : 'Success'}
-                                        >
-                                            {result}
-                                        </Notification>
-                                    ))}
-                                </div>
-                            ))
-                        )}
-                    </Card>
-                </Grid.Col>
-            </Grid>
-            <LoadingOverlay visible={visible} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
-        </Container>
+        // <Container>
+        //     <Title mb="lg">HTML5 Ad Validator Tool</Title>
+        //     <Grid>
+        //         <Grid.Col span={6}>
+        //             <Card withBorder shadow="sm" p="lg">
+        //                 <FileInput
+        //                     label="Upload HTML5 Ad Zip File"
+        //                     placeholder="Upload file"
+        //                     onChange={(event) => handleFileUpload(event)}
+        //                     accept=".zip"
+        //                 />
+        //                 <Group mt="md">
+        //                     <Button onClick={processZipFile}>Validate Zip File</Button>
+        //                 </Group>
+        //             </Card>
+        //         </Grid.Col>
+        //         <Grid.Col span={6}>
+        //             <Card withBorder shadow="sm" p="lg">
+        //                 <Title order={4} mb="md">Validation Results</Title>
+        //                 {validationResults.length === 0 ? (
+        //                     <Text>No validation results yet.</Text>
+        //                 ) : (
+        //                     validationResults.map((resultSet, index) => (
+        //                         <div key={index}>
+        //                             <Text mb="xs">{resultSet.fileName.replace(/_/g, ' ')}</Text>
+        //                             {resultSet.results.map((result, i) => (
+        //                                 <Notification
+        //                                     key={i}
+        //                                     color={result.includes('Missing') || result.includes('incorrect') ? 'red' : 'green'}
+        //                                     title={result.includes('Missing') || result.includes('incorrect') ? 'Error' : 'Success'}
+        //                                 >
+        //                                     {result}
+        //                                 </Notification>
+        //                             ))}
+        //                         </div>
+        //                     ))
+        //                 )}
+        //             </Card>
+        //         </Grid.Col>
+        //     </Grid>
+        //     <LoadingOverlay visible={visible} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
+        // </Container>
+
+        <Container pt="lg" pb="lg" style={{ margin:"0px auto" }}>
+      <Title mb="lg" style={{ fontSize: '32px', fontWeight: 'bold' }}>
+        HTML5 Ad Validator Tool
+      </Title>
+      <Grid gutter="xl">
+        <Grid.Col span={6} >
+          <Card withBorder shadow="sm" padding="lg" radius="md" >
+            <FileInput
+              label="Upload HTML5 Ad Zip File"
+              placeholder="Upload file"
+              onChange={handleFileUpload}
+              accept=".zip"
+              style={{ marginBottom: '20px' }}
+            />
+            <Group >
+              <Button onClick={processZipFile} style={{ backgroundColor: '#02D4C3', }}>
+                Validate Zip File
+              </Button>
+            </Group>
+          </Card>
+        </Grid.Col>
+        <Grid.Col span={6}>
+          <Card withBorder shadow="sm" padding="lg" radius="md">
+            <Title order={4} mb="md" style={{ fontSize: '24px', fontWeight: 'bold' }}>
+              Validation Results
+            </Title>
+            {validationResults.length === 0 ? (
+              <Text>No validation results yet.</Text>
+            ) : (
+              validationResults.map((resultSet, index) => (
+                <div key={index} style={{ marginBottom: '20px' }}>
+                  <Text mb="xs" style={{ fontWeight: 'bold' }}>
+                    {resultSet.fileName.replace(/_/g, ' ')}
+                  </Text>
+                  {resultSet.results.map((result, i) => (
+                    <Notification
+                      key={i}
+                      color={result.includes('Missing') || result.includes('incorrect') ? 'red' : 'green'}
+                      title={result.includes('Missing') || result.includes('incorrect') ? 'Error' : 'Success'}
+                      style={{ marginBottom: '10px' }}
+                    >
+                      {result}
+                    </Notification>
+                  ))}
+                </div>
+              ))
+            )}
+          </Card>
+        </Grid.Col>
+      </Grid>
+      <LoadingOverlay visible={visible} zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />
+    </Container>
     );
 };

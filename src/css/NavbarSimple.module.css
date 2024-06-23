@@ -4,8 +4,8 @@
     left: 0;
     height: 100vh;
     width: 250px; /* Adjust the width as needed */
-    background-color: #2e2e2e; /* Adjust the background color as needed */
-    padding: 20px;
+    background-color: #4163DD; /* Adjust the background color as needed */
+    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,6 +13,10 @@
   
   .navbarMain {
     flex: 1;
+  }
+
+  .navbarMain img{
+    max-width: 200px;
   }
   
   .header {
@@ -26,13 +30,21 @@
     margin-top: var(--mantine-spacing-md);
     border-top: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
   }
+  .footer span{
+    color: #fff !important;
+  }
+
+  .footer span:hover{
+    color: #b7bede !important;
+  }
   
   .link {
     display: flex;
     align-items: center;
     text-decoration: none;
     font-size: var(--mantine-font-size-sm);
-    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-1));
+    /* color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-1)); */
+    color: #fff !important;
     padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
     border-radius: var(--mantine-radius-sm);
     font-weight: 500;
@@ -44,6 +56,10 @@
       .linkIcon {
         color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
       }
+    }
+
+    .link span:hover{
+      color: #b7bede !important;
     }
   
     &[data-active] {

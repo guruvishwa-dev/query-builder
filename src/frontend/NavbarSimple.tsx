@@ -34,7 +34,8 @@ const NavbarSimple = () => {
     <nav className={classes.navbar}>
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
-          <Code color='pink' h={25} w={70} fw={1000}>Nextroll</Code>
+          <img src="../src/assets/nextroll_logo.svg" alt="Logo" />
+          {/* <Code color='pink' h={25} w={70} fw={1000}>Nextroll</Code> */}
         </Group>
         {links}
       </div>
