@@ -1,6 +1,7 @@
 import { Button, Card, Center, Container, Flex, PasswordInput, Stack, TextInput, Title, Image } from "@mantine/core";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "@mantine/form";
+import { Console } from "console";
 
 export interface LoginData {
     email: string;
@@ -28,6 +29,7 @@ interface LoginPageProps {
         if (loginDetails.email === "guru.vishwa@gmail.com" && loginDetails.password === "Password@123") {
             onLogin();
             navigate('/main/html-val');
+            console.log("The login is sucessful");
         } else {
             alert("The credential is wrong please enter valid credentials");
         }

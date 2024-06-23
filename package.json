@@ -16,7 +16,9 @@
     "@mantine/modals": "^7.10.2",
     "@mantinex/mantine-logo": "^1.0.1",
     "@tabler/icons-react": "^3.6.0",
+    "@types/node": "^20.14.8",
     "jszip": "^3.10.1",
+    "mysql2": "^3.10.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1"
@@ -30,7 +32,12 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "typescript": "^5.2.2",
+    "typescript": "^5.5.2",
     "vite": "^5.2.0"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
