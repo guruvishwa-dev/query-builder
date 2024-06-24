@@ -7,7 +7,7 @@ import '@mantine/core/styles.css';
 import NavbarSimple from './frontend/NavbarSimple';
 import { HtmlValidator } from './frontend/htmlvalidator';
 import LoginPage from './frontend/login';
-import { QueryDash } from './frontend/querydash';
+import QueryBuilder from './frontend/querydash';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,7 +32,7 @@ function App() {
                       <Routes>
                       <Route path="/" element={<WelcomeMainPage />} />
                         <Route path="/main/html-val" element={<HtmlValidator />} />
-                        <Route path="/main/query-dash" element={<QueryDash />} />
+                        <Route path="/main/query-dash" element={<QueryBuilder />} />
                         {/* Add more routes for other components */}
                       </Routes>
                     </div>
