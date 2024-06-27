@@ -47,7 +47,7 @@ const NavbarSimple = () => {
         </Link>
 
         <Link to="/login" className={classes.link} onClick={() => console.log('Logout')}>
-          <IconLogout className={classes.linkIcon} stroke={1.5} />
+          <IconLogout style={{color: 'red'}} className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>
         </Link>
       </div>
