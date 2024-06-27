@@ -10,6 +10,7 @@ import {
   Group,
   Textarea,
 } from "@mantine/core";
+import classes from "../css/NavbarSimple.module.css";
 
 const QueryBuilder = () => {
   const [tables, setTables] = useState([]);
@@ -90,12 +91,16 @@ const QueryBuilder = () => {
     //     <Textarea value={JSON.stringify(queryResult, null, 2)} readOnly minRows={10} />
     // </Paper>
 
-    <Paper shadow="sm" p="xl" radius="md" 
-    // style={{border:"2px solid #FF1454"}}
+    <Paper
+      shadow="sm"
+      p="xl"
+      radius="md"
+      style={{ border: "3px solid rgb(255, 20, 83)" }}
     >
       <Title order={1} mb="lg">
         SQL Query Builder
       </Title>
+      <hr />
       <Group mb="lg" grow>
         <Select
           label="Table"
@@ -103,6 +108,7 @@ const QueryBuilder = () => {
           value={selectedTable}
           onChange={(value) => setSelectedTable(value || "")}
           data={tables.map((table) => ({ value: table, label: table }))}
+          className={classes.label_Text}
         />
         <MultiSelect
           label="Columns"
@@ -110,12 +116,14 @@ const QueryBuilder = () => {
           value={selectedColumns}
           onChange={(value) => setSelectedColumns(value)}
           data={columns.map((column) => ({ value: column, label: column }))}
+          className={classes.label_Text}
         />
         <TextInput
           label="Conditions"
           placeholder="e.g., id > 10"
           value={conditions}
           onChange={(e) => setConditions(e.target.value)}
+          className={classes.label_Text}
         />
         <Button
           onClick={handleExecuteQuery}

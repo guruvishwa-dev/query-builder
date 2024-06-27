@@ -13,6 +13,7 @@ import {
   LoadingOverlay,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import classes from "../css/NavbarSimple.module.css";
 
 type FileState = File | null;
 
@@ -155,91 +156,93 @@ export const HtmlValidator = () => {
     //     <LoadingOverlay visible={visible} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
     // </Container>
 
-    <Container pt="lg" pb="lg" style={{ margin: "0px auto" }} >
-      <Card 
-          shadow="xl"
-          radius="lg"
-          p="xl"
-          style={{
-            width: "100%",
-            height: "100%",
-            maxHeight: "700px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            // border:"2px solid #FF1454"
-            }}>
-      <Title mb="lg" style={{ fontSize: "32px", fontWeight: "bold" }}>
-        HTML5 Ad Validator Tool
-      </Title>
-      <Grid gutter="xl">
-        <Grid.Col span={6}>
-          <Card withBorder shadow="sm" padding="lg" radius="md">
-            <FileInput
-              label="Upload HTML5 Ad Zip File"
-              placeholder="Upload file"
-              onChange={handleFileUpload}
-              accept=".zip"
-              style={{ marginBottom: "20px" }}
-            />
-            <Group>
-              <Button
-                onClick={processZipFile}
-                style={{ backgroundColor: "#02D4C3" }}
+    <Container pt="lg" pb="lg" style={{ margin: "0px auto" }}>
+      <Card
+        shadow="xl"
+        radius="lg"
+        p="xl"
+        style={{
+          width: "100%",
+          height: "100%",
+          maxHeight: "700px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          border: "3px solid #FF1454",
+        }}
+      >
+        <Title mb="lg" style={{ fontSize: "32px", fontWeight: "bold" }}>
+          HTML5 Ad Validator Tool
+        </Title>
+        <Grid gutter="xl">
+          <Grid.Col span={6}>
+            <Card withBorder shadow="sm" padding="lg" radius="md">
+              <FileInput
+                label="Upload HTML5 Ad Zip File"
+                placeholder="Upload file"
+                onChange={handleFileUpload}
+                accept=".zip"
+                style={{ marginBottom: "20px" }}
+                className={classes.label_Text}
+              />
+              <Group>
+                <Button
+                  onClick={processZipFile}
+                  style={{ backgroundColor: "#02D4C3" }}
+                >
+                  Validate Zip File
+                </Button>
+              </Group>
+            </Card>
+          </Grid.Col>
+          <Grid.Col span={6}>
+            <Card withBorder shadow="sm" padding="lg" radius="md">
+              <Title
+                order={4}
+                mb="md"
+                style={{ fontSize: "24px", fontWeight: "bold" }}
               >
-                Validate Zip File
-              </Button>
-            </Group>
-          </Card>
-        </Grid.Col>
-        <Grid.Col span={6}>
-          <Card withBorder shadow="sm" padding="lg" radius="md">
-            <Title
-              order={4}
-              mb="md"
-              style={{ fontSize: "24px", fontWeight: "bold" }}
-            >
-              Validation Results
-            </Title>
-            {validationResults.length === 0 ? (
-              <Text>No validation results yet.</Text>
-            ) : (
-              validationResults.map((resultSet, index) => (
-                <div key={index} style={{ marginBottom: "20px" }}>
-                  <Text mb="xs" style={{ fontWeight: "bold" }}>
-                    {resultSet.fileName.replace(/_/g, " ")}
-                  </Text>
-                  {resultSet.results.map((result, i) => (
-                    <Notification
-                      key={i}
-                      color={
-                        result.includes("Missing") ||
-                        result.includes("incorrect")
-                          ? "red"
-                          : "green"
-                      }
-                      title={
-                        result.includes("Missing") ||
-                        result.includes("incorrect")
-                          ? "Error"
-                          : "Success"
-                      }
-                      style={{ marginBottom: "10px" }}
-                    >
-                      {result}
-                    </Notification>
-                  ))}
-                </div>
-              ))
-            )}
-          </Card>
-        </Grid.Col>
-      </Grid>
-      <LoadingOverlay
-        visible={visible}
-        zIndex={1000}
-        overlayProps={{ radius: "sm", blur: 2 }}
-      />
+                Validation Results
+              </Title>
+              {validationResults.length === 0 ? (
+                <Text>No validation results yet.</Text>
+              ) : (
+                validationResults.map((resultSet, index) => (
+                  <div key={index} style={{ marginBottom: "20px" }}>
+                    <Text mb="xs" style={{ fontWeight: "bold" }}>
+                      {resultSet.fileName.replace(/_/g, " ")}
+                    </Text>
+                    {resultSet.results.map((result, i) => (
+                      <Notification
+                        key={i}
+                        color={
+                          result.includes("Missing") ||
+                          result.includes("incorrect")
+                            ? "red"
+                            : "green"
+                        }
+                        title={
+                          result.includes("Missing") ||
+                          result.includes("incorrect")
+                            ? "Error"
+                            : "Success"
+                        }
+                        style={{ marginBottom: "10px" }}
+                      >
+                        {result}
+                      </Notification>
+                    ))}
+                  </div>
+                ))
+              )}
+            </Card>
+          </Grid.Col>
+        </Grid>
+        <LoadingOverlay
+          visible={visible}
+          zIndex={1000}
+          overlayProps={{ radius: "sm", blur: 2 }}
+        />
       </Card>
     </Container>
   );

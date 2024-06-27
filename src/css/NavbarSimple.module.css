@@ -1,83 +1,95 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 250px; /* Adjust the width as needed */
-    background-color: #4163DD; /* Adjust the background color as needed */
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .navbarMain {
-    flex: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px; /* Adjust the width as needed */
+  background-color: #4163dd; /* Adjust the background color as needed */
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbarMain {
+  flex: 1;
+}
+
+.navbarMain img {
+  max-width: 200px;
+}
+
+.header {
+  padding-bottom: var(--mantine-spacing-md);
+  margin-bottom: calc(var(--mantine-spacing-md) * 1.5);
+  border-bottom: rem(1px) solid
+    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+
+.footer {
+  padding-top: var(--mantine-spacing-md);
+  margin-top: var(--mantine-spacing-md);
+  border-top: rem(1px) solid
+    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+.footer span {
+  color: #fff !important;
+}
+
+.footer span:hover {
+  color: #b7bede !important;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: var(--mantine-font-size-sm);
+  /* color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-1)); */
+  color: #fff !important;
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
+  border-radius: var(--mantine-radius-sm);
+  font-weight: 500;
+
+  @mixin hover {
+    background-color: light-dark(
+      var(--mantine-color-gray-0),
+      var(--mantine-color-dark-6)
+    );
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+
+    .linkIcon {
+      color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    }
   }
 
-  .navbarMain img{
-    max-width: 200px;
-  }
-  
-  .header {
-    padding-bottom: var(--mantine-spacing-md);
-    margin-bottom: calc(var(--mantine-spacing-md) * 1.5);
-    border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
-  }
-  
-  .footer {
-    padding-top: var(--mantine-spacing-md);
-    margin-top: var(--mantine-spacing-md);
-    border-top: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
-  }
-  .footer span{
-    color: #fff !important;
-  }
-
-  .footer span:hover{
+  .link span:hover {
     color: #b7bede !important;
   }
-  
-  .link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: var(--mantine-font-size-sm);
-    /* color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-1)); */
-    color: #fff !important;
-    padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
-    border-radius: var(--mantine-radius-sm);
-    font-weight: 500;
-  
-    @mixin hover {
-      background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
-      color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
-  
-      .linkIcon {
-        color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
-      }
-    }
 
-    .link span:hover{
-      color: #b7bede !important;
-    }
-  
-    &[data-active] {
-      &,
-      &:hover {
-        background-color: var(--mantine-color-blue-light);
+  &[data-active] {
+    &,
+    &:hover {
+      background-color: var(--mantine-color-blue-light);
+      color: var(--mantine-color-blue-light-color);
+
+      .linkIcon {
         color: var(--mantine-color-blue-light-color);
-  
-        .linkIcon {
-          color: var(--mantine-color-blue-light-color);
-        }
       }
     }
   }
-  
-  .linkIcon {
-    color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-2));
-    margin-right: var(--mantine-spacing-sm);
-    width: rem(25px);
-    height: rem(25px);
-  }
+}
+
+.linkIcon {
+  color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-2));
+  margin-right: var(--mantine-spacing-sm);
+  width: rem(25px);
+  height: rem(25px);
+}
+
+.label_Text label {
+  font-family: Work Sans Bold, sans-serif !important;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0.5rem;
+}
